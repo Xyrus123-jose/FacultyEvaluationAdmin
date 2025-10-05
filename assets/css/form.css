@@ -1,0 +1,53 @@
+ :root {
+      --primary-color: #001A3D;
+      --accent-color: #3498db;
+      --light-gray: #f8f9fa;
+      --border-color: #e9ecef;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary-color);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+    .card-custom {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      border: none;
+    }
+    .card-custom:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+    .card-header { background: none; border-bottom: 1px solid var(--border-color); margin-bottom: 20px; }
+    .card-header h5 { color: var(--primary-color); font-weight: 600; display: flex; align-items: center; gap: 10px; }
+    input.form-control { border-radius: 8px; padding: 10px 15px; border: 1px solid var(--border-color); }
+    input.form-control:focus { border-color: var(--accent-color); box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.15); }
+    .btn-primary { background-color: var(--accent-color); border-color: var(--accent-color); border-radius: 8px; width: 100%; }
+    .btn-primary:hover { background-color: #2980b9; border-color: #2980b9; }
+    .table-container { background: #fff; border-radius: 12px; box-shadow: var(--shadow); display: flex; flex-direction: column; height: 360px; }
+    .table-header { background-color: var(--primary-color); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .table-responsive { flex: 1; overflow-y: auto; }
+    table { width: 100%; border-collapse: separate; border-spacing: 0; }
+    th, td { text-align: center; padding: 15px; border-bottom: 1px solid var(--border-color); }
+    th { background-color: var(--light-gray); color: var(--primary-color); font-weight: 600; position: sticky; top: 0; z-index: 10; }
+    tbody tr:hover { background-color: rgba(52, 152, 219, 0.05); }
+    .actions button { border-radius: 6px; padding: 6px 8px; margin: 0 2px; }
+    .status-badge { display: inline-block; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+    .status-active { background-color: rgba(46, 204, 113, 0.15); color: #27ae60; }
+    .status-inactive { background-color: rgba(231, 76, 60, 0.15); color: #c0392b; }
+    @media (max-width: 768px) { .table-header { flex-direction: column; text-align: center; } .actions { flex-direction: column; } }

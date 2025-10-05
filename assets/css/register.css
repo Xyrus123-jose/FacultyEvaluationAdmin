@@ -1,0 +1,294 @@
+
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: "Instrument Sans", sans-serif;
+            padding: 15px;
+        }
+
+        /* register Card */
+        .register-card {
+            display: flex;
+            width: 950px;
+            max-width: 95%;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            margin: auto;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideIn 0.8s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form on the left */
+        .register-form {
+            flex: 1;
+            min-width: 350px;
+            padding: 40px;
+            order: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        /* Image on the right */
+      .register-image {
+          width: 400px;       /* enlarged image width */
+          height: 100%;       /* full card height */
+          background-image: url("/project_internal/assets/css/background/loginimg\ \(2\).svg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          order: 2;
+        }
+
+        .register-image-content {
+            max-width: 80%;
+        }
+
+        .register-image h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .register-image p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Heading */
+        h1 {
+            font-weight: bold;
+            font-size: 48px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        /* Form elements */
+        .form-label {
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .form-control, .form-select {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+
+    .btn-register {
+        width: 100%;
+        max-width: 312px;
+        height: 50px;
+        background-color: #001A3D;
+        border-radius: 30px;
+        color: #fff;
+        border: 1px solid #001A3D;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 20px auto 0 auto;
+        display: block;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+        padding: 12px;
+        box-sizing: border-box; /* Ensure padding doesn't affect width */
+    }
+
+    .btn-login:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+         .register-link {
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-link a {
+            font-weight: 600;
+            text-decoration: none;
+            color: #001A3D;
+            font-size: 13px;
+        }
+
+
+        /* register Link */
+        .register-link {
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .register-link a {
+            font-weight: 600;
+            text-decoration: none;
+            color: #001A3D;
+            font-size: 13px;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive: Tablets and Small Laptops */
+        @media (max-width: 992px) {
+            .register-card {
+                width: 90%;
+                height: auto;
+                max-height: 90vh;
+            }
+            
+            .register-image {
+                width: 300px;
+            }
+            
+            h1 {
+                font-size: 40px;
+            }
+        }
+
+        /* Responsive: All Phones and Small Tablets */
+        @media (max-width: 768px) {
+            .register-card {
+                flex-direction: column;
+                width: 95%;
+                height: auto;
+                border-radius: 8px;
+                max-height: none;
+            }
+
+            .register-image {
+                width: 100%;
+                height: 200px;
+                border-radius: 8px 8px 0 0;
+                order: 1;
+            }
+
+            .register-image h2 {
+                font-size: 24px;
+            }
+
+            .register-image p {
+                font-size: 14px;
+            }
+
+            .register-form {
+                width: 100%;
+                padding: 25px 20px;
+                order: 2;
+            }
+
+            h1 {
+                font-size: 32px;
+                text-align: center;
+            }
+
+            .btn-register {
+                width: 100% !important;
+                max-width: none !important;
+                font-size: 16px;
+            }
+
+            .register-link {
+                margin-top: 15px;
+            }
+        }
+
+        /* Responsive: Small Phones */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .register-card {
+                width: 100%;
+                border-radius: 6px;
+            }
+            
+            .register-image {
+                height: 150px;
+                padding: 15px;
+            }
+            
+            .register-image h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            
+            .register-image p {
+                font-size: 13px;
+            }
+            
+            .register-form {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .btn-register {
+                font-size: 15px;
+                padding: 8px 10px;
+            }
+            
+            .register-link {
+                font-size: 12px;
+            }
+            
+            .register-link a {
+                font-size: 12px;
+            }
+        }
+
+        /* Responsive: Extra Small Phones */
+        @media (max-width: 320px) {
+            .register-image {
+                height: 120px;
+                padding: 10px;
+            }
+            
+            .register-image h2 {
+                font-size: 18px;
+            }
+            
+            .register-image p {
+                font-size: 12px;
+            }
+            
+            .register-form {
+                padding: 15px 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .btn-register {
+                font-size: 14px;
+                padding: 6px 8px;
+            }
+            
+            .register-link {
+                font-size: 11px;
+            }
+            
+            .register-link a {
+                font-size: 11px;
+            }
+        }
