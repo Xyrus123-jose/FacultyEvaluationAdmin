@@ -111,25 +111,33 @@
     </div>
 </div>
 
-<!-- Edit Section Modal -->
-<div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionLabel" aria-hidden="true">
+<!-- Edit Category Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form id="editSectionForm" method="POST" action="Editsection.php">
-                <!-- Hidden field to store original section_id -->
-                <input type="hidden" name="old_section_id" id="edit_old_section_id">
+            <form id="editCategoryForm" method="POST" action="Editcategory.php">
+                <!-- Hidden field to store original category ID -->
+                <input type="hidden" name="old_category_id" id="edit_old_category_id">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editSectionLabel">
-                        <i class="fas fa-edit"></i> Edit Section
+                    <h5 class="modal-title" id="editCategoryLabel">
+                        <i class="fas fa-edit"></i> Edit Category
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="edit_section" class="form-label">Section Name</label>
-                        <input type="text" class="form-control" name="section" id="edit_section" placeholder="Enter section name" required>
+                        <label for="edit_evaluation_category" class="form-label">Evaluation Category</label>
+                        <input type="text" class="form-control" name="evaluation_category" id="edit_evaluation_category" placeholder="Enter category name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit_status" class="form-label">Status</label>
+                        <select class="form-control" name="status" id="edit_status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
                     </div>
                 </div>
 
@@ -145,6 +153,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

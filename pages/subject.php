@@ -222,11 +222,12 @@
                         </select>
                     </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save Changes</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-arrow-left"></i> Cancel</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save Changes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-arrow-left"></i> Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

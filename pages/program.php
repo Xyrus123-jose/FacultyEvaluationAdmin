@@ -130,43 +130,51 @@
     </div>
 </div>
 
-<!-- Edit Program Modal -->
-<div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form id="editProgramForm" method="POST" action="Editprogram.php">
-                <input type="hidden" name="old_program_id" id="edit_old_program_id">
+<!-- Edit Category Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="editCategoryForm" method="POST" action="Editcategory.php">
+        <!-- Hidden field to store old category ID -->
+        <input type="hidden" name="old_category_id" id="edit_old_category_id">
 
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editProgramLabel"><i class="fas fa-edit"></i> Edit Program</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="edit_program_id" class="form-label">Program ID</label>
-                        <input type="text" class="form-control" name="program_id" id="edit_program_id" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="edit_program_name" class="form-label">Program Name</label>
-                        <input type="text" class="form-control" name="program_name" id="edit_program_name" required>
-                    </div>
-
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" name="program_status" id="edit_program_status">
-                        <label class="form-check-label" for="edit_program_status">Active Program</label>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save Changes</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-arrow-left"></i> Cancel</button>
-                </div>
-            </form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="editCategoryModalLabel">
+            <i class="fas fa-edit me-2"></i> Edit Category
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="edit_category_id" class="form-label">Category ID</label>
+            <input type="text" class="form-control" name="category_id" id="edit_category_id" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="edit_category_name" class="form-label">Category Name</label>
+            <input type="text" class="form-control" name="category_name" id="edit_category_name" required>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" name="category_status" id="edit_category_status">
+            <label class="form-check-label" for="edit_category_status">Active Category</label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            <i class="fas fa-arrow-left"></i> Cancel
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
+
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
