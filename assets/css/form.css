@@ -37,7 +37,7 @@
     .card-header h5 { color: var(--primary-color); font-weight: 600; display: flex; align-items: center; gap: 10px; }
     input.form-control { border-radius: 8px; padding: 10px 15px; border: 1px solid var(--border-color); }
     input.form-control:focus { border-color: var(--accent-color); box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.15); }
-    .btn-primary { background-color: var(--accent-color); border-color: var(--accent-color); border-radius: 8px; width: 100%; }
+    .btn-primary { background-color: #3498db; border-radius: 8px; width: 100%; }
     .btn-primary:hover { background-color: #2980b9; border-color: #2980b9; }
     .table-container { background: #fff; border-radius: 12px; box-shadow: var(--shadow); display: flex; flex-direction: column; height: 360px; }
     .table-header { background-color: var(--primary-color); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }

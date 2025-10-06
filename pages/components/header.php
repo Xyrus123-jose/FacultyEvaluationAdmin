@@ -9,13 +9,14 @@ $pageTitle = basename($_SERVER['PHP_SELF'], '.php');
 // Optional: Convert to a more readable format (replace underscores with spaces, capitalize words)
 $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
 ?>
-<title><?php echo $pageTitle; ?> | Admin Dashboard</title>
+<title>Admin Dashboard | <?php echo $pageTitle; ?></title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
     />
     
         <link rel="stylesheet" href="/assets/css/demo.css" />
+        <a>
 <link
       rel="icon"
       href="/assets/css/background/QCU_Logo.png"
@@ -57,7 +58,7 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
         <div class="sidebar-logo">
          <!-- Logo Header --> 
           <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
               <img src="/assets/css/background/headerlogo.svg" alt="navbar brand" class="navbar-brand" height="40">
             </a>
             <div class="nav-toggle">
@@ -155,8 +156,18 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
                       </a>
                     </li>
                     <li>
-                      <a href="">
+                      <a href="criteria.php">
                         <span class="sub-item">Criteria</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="category.php">
+                        <span class="sub-item">Category</span>
+                      </a>
+                    </li>
+                     <li>
+                      <a href="studentreport.php">
+                        <span class="sub-item">Student Report</span>
                       </a>
                     </li>
                   </ul>

@@ -272,7 +272,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                                         <i class="fas fa-times me-1"></i> Cancel
                                     </button>
                                     <button type="submit" class="btn btn-primary">
@@ -399,7 +399,7 @@
 
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                                         <i class="fas fa-times me-1"></i> Cancel
                                     </button>
                                     <button type="submit" class="btn btn-primary">
@@ -412,7 +412,8 @@
                 </div>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/js/evalperiod.js"></script>
+
 
 <?php include 'components/footer.php'; ?>

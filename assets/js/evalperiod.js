@@ -1,7 +1,3 @@
-document.getElementById('addPeriodBtn').addEventListener('click', function() {
-    const modal = new bootstrap.Modal(document.getElementById('addPeriodModal'));
-    modal.show();
-});
 
 const academicYear = document.getElementById('academicYear');
 const startDate = document.getElementById('startDate');
@@ -203,42 +199,64 @@ document.addEventListener('DOMContentLoaded', function() {
     academicYear.addEventListener('change', updateDateLimits);
 });
 
-document.getElementById('addPeriodForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    const formData = new FormData(form);
+document.addEventListener('DOMContentLoaded', function () {
+    const addForm = document.getElementById('addPeriodForm');
 
-    fetch('Addperiod.php', { method: 'POST', body: formData })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Added!',
-                    text: data.message,
-                    confirmButtonColor: '#3085d6'
-                }).then(() => {
-                    window.location.reload(); // refresh table
+    if (addForm) {
+        addForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(addForm);
+
+            fetch('Addperiod.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // ✅ Hide modal before showing SweetAlert
+                        const modalEl = document.getElementById('addPeriodModal');
+                        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+                        if (modalInstance) modalInstance.hide();
+
+                        // ✅ Remove leftover backdrop
+                        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+
+                        // ✅ SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Added!',
+                            text: data.message,
+                            confirmButtonColor: '#3085d6',
+                            allowOutsideClick: true,
+                            allowEscapeKey: true,
+                            backdrop: true
+                        }).then(() => {
+                            window.location.reload();
+                        });
+
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: data.message,
+                            confirmButtonColor: '#d33'
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'An unexpected error occurred.',
+                        confirmButtonColor: '#d33'
+                    });
                 });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error!',
-                    text: data.message,
-                    confirmButtonColor: '#d33'
-                });
-            }
-        })
-        .catch(err => {
-            console.error(err);
-            Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: 'An unexpected error occurred.',
-                confirmButtonColor: '#d33'
-            });
         });
+    }
 });
+
 
 document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', () => {
