@@ -1,37 +1,34 @@
 <?php
-// Include database connection
-include '../config/db.php';
+header('Content-Type: application/json');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Check if program_id is provided
-if (isset($_POST['program_id']) && !empty($_POST['program_id'])) {
+include '../config/db.php'; // adjust if in another directory
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_POST['program_id'])) {
+        echo json_encode(['status' => 'error', 'message' => 'Program ID not provided']);
+        exit;
+    }
+
     $program_id = $_POST['program_id'];
 
-    // Prepare statement to avoid SQL injection
+    // Make sure the ID is valid before deleting
     $stmt = $conn->prepare("DELETE FROM program_table WHERE program_id = ?");
     $stmt->bind_param("s", $program_id);
 
     if ($stmt->execute()) {
-        // Success
-        echo json_encode([
-            'status' => 'success',
-            'message' => 'Program deleted successfully.'
-        ]);
+        if ($stmt->affected_rows > 0) {
+            echo json_encode(['status' => 'success', 'message' => 'Program deleted successfully.']);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Program not found.']);
+        }
     } else {
-        // Error executing query
-        echo json_encode([
-            'status' => 'error',
-            'message' => 'Failed to delete program. Please try again.'
-        ]);
+        echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $stmt->error]);
     }
 
     $stmt->close();
+    $conn->close();
 } else {
-    // No program_id provided
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Program ID is required.'
-    ]);
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
 }
-
-$conn->close();
-?>

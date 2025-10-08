@@ -15,16 +15,16 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
       name="viewport"
     />
     
-        <link rel="stylesheet" href="/assets/css/demo.css" />
+        <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/demo.css" />
         <a>
 <link
       rel="icon"
-      href="/assets/css/background/QCU_Logo.png"
+      href="../../FacultyEvaluationAdmin/assets/css/background/QCU_Logo.png"
       type="image/x-icon"
     />
 
     <!-- Fonts and icons -->
-    <script src="/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script src="../../FacultyEvaluationAdmin/assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -35,7 +35,7 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
             "Font Awesome 5 Brands",
             "simple-line-icons",
           ],
-          urls: ["/assets/css/fonts.min.css"],
+          urls: ["../../FacultyEvaluationAdmin/assets/css/fonts.min.css"],
         },
         active: function () {
           sessionStorage.fonts = true;
@@ -44,12 +44,12 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="/assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/kaiadmin.min.css" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="/assets/css/demo.css" />
+    <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/demo.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -59,7 +59,7 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
          <!-- Logo Header --> 
           <div class="logo-header" data-background-color="dark">
             <a href="index.php" class="logo">
-              <img src="/assets/css/background/headerlogo.svg" alt="navbar brand" class="navbar-brand" height="40">
+              <img src="../../FacultyEvaluationAdmin/assets/css/background/headerlogo.svg" alt="navbar brand" class="navbar-brand" height="40">
             </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
@@ -151,11 +151,6 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
                 <div class="collapse" id="evaluation">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="">
-                        <span class="sub-item">Questionnaire</span>
-                      </a>
-                    </li>
-                    <li>
                       <a href="criteria.php">
                         <span class="sub-item">Criteria</span>
                       </a>
@@ -222,10 +217,10 @@ $pageTitle = ucwords(str_replace('_', ' ', $pageTitle));
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
                 <img
-                  src="/assets/img/kaiadmin/logo_light.svg"
+                  src="../../FacultyEvaluationAdmin/assets/css/background/headerlogo.svg"
                   alt="navbar brand"
                   class="navbar-brand"
-                  height="20"
+                  height="40"
                 />
               </a>
               <div class="nav-toggle">

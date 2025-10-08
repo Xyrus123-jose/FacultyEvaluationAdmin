@@ -2,7 +2,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/form.css">
+    <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -130,55 +130,80 @@
     </div>
 </div>
 
-<!-- Edit Category Modal -->
-<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+<!-- Edit Program Modal -->
+<div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <form id="editCategoryForm" method="POST" action="Editcategory.php">
-        <!-- Hidden field to store old category ID -->
-        <input type="hidden" name="old_category_id" id="edit_old_category_id">
+
+      <form id="editProgramForm" method="POST" action="Editprogram.php">
+        <!-- Hidden field for old program ID -->
+        <input type="hidden" name="old_program_id" id="edit_old_program_id">
 
         <div class="modal-header">
-          <h5 class="modal-title" id="editCategoryModalLabel">
-            <i class="fas fa-edit me-2"></i> Edit Category
+          <h5 class="modal-title" id="editProgramLabel">
+            <i class="fas fa-edit me-2"></i>Edit Program
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
           <div class="mb-3">
-            <label for="edit_category_id" class="form-label">Category ID</label>
-            <input type="text" class="form-control" name="category_id" id="edit_category_id" required>
+            <label for="edit_program_id" class="form-label">Program ID</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              name="program_id" 
+              id="edit_program_id" 
+              placeholder="Enter program ID" 
+              required
+            >
           </div>
 
           <div class="mb-3">
-            <label for="edit_category_name" class="form-label">Category Name</label>
-            <input type="text" class="form-control" name="category_name" id="edit_category_name" required>
+            <label for="edit_program_name" class="form-label">Program Name</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              name="program_name" 
+              id="edit_program_name" 
+              placeholder="Enter program name" 
+              required
+            >
           </div>
 
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" name="category_status" id="edit_category_status">
-            <label class="form-check-label" for="edit_category_status">Active Category</label>
+          <div class="mb-3">
+            <label for="edit_program_status" class="form-label">Program Status</label>
+            <select 
+              class="form-select" 
+              name="program_status" 
+              id="edit_program_status" 
+              required
+            >
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+            </select>
           </div>
         </div>
 
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">
-            <i class="fas fa-save"></i> Save Changes
+            <i class="fas fa-save me-1"></i> Save Changes
           </button>
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-            <i class="fas fa-arrow-left"></i> Cancel
+            <i class="fas fa-times me-1"></i> Cancel
           </button>
         </div>
       </form>
+
     </div>
   </div>
 </div>
 
 
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/program.js"></script>
+<script src="../../FacultyEvaluationAdmin/assets/js/program.js"></script>
 
 <?php include 'components/footer.php'; ?>
