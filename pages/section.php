@@ -2,7 +2,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/form.css">
+    <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -111,53 +111,47 @@
     </div>
 </div>
 
-<!-- Edit Category Modal -->
-<div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form id="editCategoryForm" method="POST" action="Editcategory.php">
-                <!-- Hidden field to store original category ID -->
-                <input type="hidden" name="old_category_id" id="edit_old_category_id">
+           <!-- Edit Section Modal -->
+<div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="editSectionForm" method="POST" action="Editsection.php">
+        <!-- Hidden field to store original section ID -->
+        <input type="hidden" name="old_section_id" id="edit_old_section_id">
 
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editCategoryLabel">
-                        <i class="fas fa-edit"></i> Edit Category
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="edit_evaluation_category" class="form-label">Evaluation Category</label>
-                        <input type="text" class="form-control" name="evaluation_category" id="edit_evaluation_category" placeholder="Enter category name" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="edit_status" class="form-label">Status</label>
-                        <select class="form-control" name="status" id="edit_status" required>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-save"></i> Save Changes
-                    </button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                        <i class="fas fa-arrow-left"></i> Cancel
-                    </button>
-                </div>
-            </form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="editSectionLabel">
+            <i class="fas fa-edit"></i> Edit Section
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="edit_section" class="form-label">Section Name</label>
+            <input type="text" class="form-control" name="section" id="edit_section" placeholder="Enter section name" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
+
+
 
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/js/section.js"></script>
+<script src="../../FacultyEvaluationAdmin/assets/js/section.js"></script>
 
 <?php include 'components/footer.php'; ?>
