@@ -1,7 +1,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Criteria</title>
 
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,12 +26,13 @@ $sql = "
         cat.evaluation_category AS category_name,
         c.criteria_question,
         c.max_score,
-        c.evaluation_type
+        c.use_state
     FROM evaluation_criteria_table AS c
     INNER JOIN evaluation_category_table AS cat 
         ON c.evaluation_category_id = cat.evaluation_category_id
     ORDER BY cat.evaluation_category ASC
 ";
+
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -56,7 +56,7 @@ $conn->close();
             <div class="col-lg-4">
                 <div class="criteria-form-container">
                     <div class="card-header">
-                        <h5><i class="fas fa-plus-circle me-2"></i> Add New Category</h5>
+                        <h5><i class="fas fa-plus-circle me-2"></i> Add New Criteria</h5>
                     </div>
                     <p class="text-muted mb-3">Create a new evaluation question</p>
 
@@ -68,7 +68,7 @@ $conn->close();
 
                         <div class="mb-3">
                             <label for="max_score" class="form-label">Max Score</label>
-                            <input type="number" id="max_score" name="max_score" class="form-control" min="1" max="100" placeholder="Enter max score" required/>
+                            <input type="number" id="max_score" name="max_score" class="form-control" min="1" max="5" placeholder="Enter max score" required/>
                         </div>
 
                         <div class="mb-3">
@@ -90,16 +90,6 @@ $conn->close();
                                 ?>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="evaluation_type" class="form-label">Evaluation Type</label>
-                            <select id="evaluation_type" name="evaluation_type" class="form-control" required>
-                                <option value="">Select Type</option>
-                                <option value="rating">Rating</option>
-                                <option value="text">Text</option>
-                                <!-- Add more types as needed -->
-                            </select>
-                        </div>
-
                         <div class="mb-3">
                             <label for="use_state" class="form-label">Use State</label>
                             <select id="use_state" name="use_state" class="form-control" required>
@@ -180,32 +170,40 @@ $conn->close();
                                                     <div class="criteria-question"><?= htmlspecialchars($row['criteria_question']) ?></div>
                                                     <div class="criteria-rating mt-1">
                                                         <div class="rating-scale d-flex gap-2">
-                                                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                            <?php for ($i = 1; $i <= $row['max_score']; $i++): ?>
                                                                 <div class="rating-option">
                                                                     <input type="radio" 
                                                                         id="score_<?= $row['criteria_id'] . '_' . $i ?>" 
                                                                         name="score[<?= $row['criteria_id'] ?>]" 
                                                                         value="<?= $i ?>" 
                                                                         class="rating-input">
-                                                                    <label for="score_<?= $row['criteria_id'] . '_' . $i ?>" class="rating-label"><?= $i ?></label>
+                                                                    <label for="score_<?= $row['criteria_id'] . '_' . $i ?>" class="rating-label">
+                                                                        <?= $i ?>
+                                                                    </label>
                                                                 </div>
                                                             <?php endfor; ?>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="criteria-actions ms-3">
-<button type="button" 
-        class="criteria-action-btn edit" 
-        title="Edit Criteria"
-        data-bs-toggle="modal" 
-        data-bs-target="#editCriteriaModal"
-        data-id="<?= $row['criteria_id'] ?>"
-        data-question="<?= htmlspecialchars($row['criteria_question'], ENT_QUOTES) ?>"
-        data-max="<?= $row['max_score'] ?>"
-        data-category="<?= $row['evaluation_category_id'] ?>"
-        data-type ="<?= $row['evaluation_type'] ?>">
-    <i class="fas fa-edit"></i>
-</button>                                                    <button type="button" class="criteria-action-btn delete" title="Delete Criteria"><i class="fas fa-times"></i></button>
+                                                    <button type="button" 
+                                                        class="criteria-action-btn edit" 
+                                                        title="Edit Criteria"
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#editCriteriaModal"
+                                                        data-id="<?= $row['criteria_id'] ?>"
+                                                        data-question="<?= htmlspecialchars($row['criteria_question'], ENT_QUOTES) ?>"
+                                                        data-max="<?= $row['max_score'] ?>"
+                                                        data-category="<?= $row['evaluation_category_id'] ?>"
+                                                        data-use_state="<?= $row['use_state'] ?>">
+                                                    <i class="fas fa-edit"></i>
+                                                    </button>                                                   
+                                                    <button type="button"
+                                                        class="criteria-action-btn delete"
+                                                        title="Delete Criteria"
+                                                        data-id="<?= $row['criteria_id'] ?>">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         <?php $counter++; endforeach; ?>
@@ -244,26 +242,31 @@ $conn->close();
         </div>
     </div>
 </div>
+
 <!-- Edit Criteria Modal -->
-<div class="modal fade" id="editCriteriaModal" tabindex="-1" aria-labelledby="editCriteriaModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="editCriteriaModal" tabindex="-1" aria-labelledby="editCriteriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <form id="editCriteriaForm" action="Editcriteria.php" method="POST">
+            <form id="editCriteriaForm" method="POST" action="Editcriteria.php">
+                <!-- Hidden field for ID -->
+                <input type="hidden" name="criteria_id" id="edit_criteria_id">
+
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editCriteriaModalLabel"><i class="fas fa-edit me-2"></i>Edit Criteria</h5>
+                    <h5 class="modal-title" id="editCriteriaLabel">
+                        <i class="fas fa-edit"></i> Edit Criteria
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <input type="hidden" id="edit_criteria_id" name="criteria_id">
 
+                <div class="modal-body">
                     <div class="mb-3">
                         <label for="edit_criteria_question" class="form-label">Question</label>
-                        <textarea id="edit_criteria_question" name="criteria_question" class="form-control" rows="3" required></textarea>
+                        <textarea id="edit_criteria_question" name="criteria_question" class="form-control" rows="3" placeholder="Enter evaluation question" required></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="edit_max_score" class="form-label">Max Score</label>
-                        <input type="number" id="edit_max_score" name="max_score" class="form-control" min="1" max="100" required/>
+                        <input type="number" id="edit_max_score" name="max_score" class="form-control" min="1" max="5" placeholder="Enter max score" required>
                     </div>
 
                     <div class="mb-3">
@@ -283,32 +286,29 @@ $conn->close();
                             ?>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="edit_evaluation_type" class="form-label">Use State</label>
-                        <select id="edit_evaluation_type" name="evaluation_type" class="form-control" required>
-                         <option value="">Select Type</option>
-                                <option value="rating">Rating</option>
-                                <option value="text">Text</option>   
-                        </select>
-                    </div>
 
                     <div class="mb-3">
                         <label for="edit_use_state" class="form-label">Use State</label>
                         <select id="edit_use_state" name="use_state" class="form-control" required>
-                           <option value="">Select Use State</option>
                             <option value="1">Active</option>
                             <option value="0">Inactive</option>
                         </select>
                     </div>
                 </div>
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Save Changes</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        <i class="fas fa-arrow-left"></i> Cancel
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 
 <!-- Scripts -->

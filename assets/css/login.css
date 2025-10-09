@@ -1,5 +1,5 @@
 body {
-    background-color: #f4f4f9;
+    background-color: #C6D1DC;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ body {
 .login-image {
     width: 400px;
     height: 100%;
-    background-image: url("/project_internal/assets/css/background/loginimg\ \(2\).svg");
+    background-image: url("../css/background/loginimg\ \(2\).svg");
     background-size: cover;
     background-position: center;
     border-radius: 12px 0 0 12px;
