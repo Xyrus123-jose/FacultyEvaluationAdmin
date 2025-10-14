@@ -11,7 +11,7 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Manage Sections</h4>
+            <h4 class="page-title">Manage Academic Year</h4>
         </div>
 
         <div class="row g-4">
@@ -20,7 +20,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card-custom">
                         <div class="card-header">
-                            <h5><i class="fas fa-plus-circle"></i> Add New Section</h5>
+                            <h5><i class="fas fa-plus-circle"></i> Add New Academic Year</h5>
                         </div>
                         <form id="addAcademicYearForm" method="POST" action="Addacademicyear.php">
                             <input type="hidden" name="academic_year_id" id="academic_year_id">
@@ -61,11 +61,11 @@
                 </div>
 
 
-            <!-- Section List Table -->
+       
                 <div class="col-lg-8 col-md-10">
                     <div class="table-container">
                         <div class="table-header d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="mb-0"><i class="fas fa-list me-2"></i> Section List</h5>
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i> Academic Year List</h5>
                             <div class="d-flex align-items-center gap-2">
                                <div class="d-flex gap-2 align-items-center">
                                     <!-- Academic Year Start Filter -->
@@ -140,14 +140,20 @@
                                                     title="Edit">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
+                                                <button 
+                                                    class="btn btn-link btn-warning archive-btn" 
+                                                    data-id="<?= $ay['academic_year_id'] ?>" 
+                                                    title="Archive">
+                                                    <i class="fas fa-archive"></i>
+                                                </button>
 
-                                                <!-- Delete Button -->
                                                 <button 
                                                     class="btn btn-link btn-danger delete-btn" 
                                                     data-id="<?= $ay['academic_year_id'] ?>" 
                                                     title="Delete">
                                                     <i class="fas fa-times"></i>
                                                 </button>
+                                                
                                             </div>
                                         </td>
                                     </tr>
@@ -175,9 +181,12 @@
         <div class="modal-content">
             <form id="editAcademicYearForm" method="POST" action="Editacademicyear.php">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editAcademicYearModalLabel"><i class="fas fa-edit me-2"></i>Edit Academic Year</h5>
+                    <h5 class="modal-title" id="editAcademicYearModalLabel">
+                        <i class="fas fa-edit me-2"></i>Edit Academic Year
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
                     <!-- Hidden ID -->
                     <input type="hidden" name="academic_year_id" id="edit_academic_year_id">
@@ -210,14 +219,21 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save Changes</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-arrow-left"></i> Cancel</button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        <i class="fas fa-arrow-left"></i> Cancel
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
 
 
 

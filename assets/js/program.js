@@ -11,7 +11,7 @@ editButtons.forEach(btn => {
         document.getElementById('edit_old_program_id').value = id;
         document.getElementById('edit_program_id').value = id;
         document.getElementById('edit_program_name').value = name;
-        document.getElementById('edit_program_status').checked = status == 1;
+        document.getElementById('edit_program_status').value = status;
 
         editModal.show();
     });
@@ -143,4 +143,9 @@ function filterPrograms() {
 // Event listeners
 searchInput.addEventListener('input', filterPrograms);
 statusFilter.addEventListener('change', filterPrograms);
+
+document.getElementById('program_id').addEventListener('input', function() {
+    this.value = this.value.toUpperCase();
+});
+
 

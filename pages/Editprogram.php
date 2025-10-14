@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $old_id = $_POST['old_program_id']; // original ID
     $new_id = trim($_POST['program_id']);
     $program_name = trim($_POST['program_name']);
-    $program_status = isset($_POST['status']) ? 1 : 0;
+    $program_status = isset($_POST['program_status']) ? intval($_POST['program_status']) : 0;
 
     // Validate inputs
     if (empty($new_id) || empty($program_name)) {

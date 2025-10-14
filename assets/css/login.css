@@ -62,7 +62,7 @@ body {
     margin: 0 auto 15px auto;
     box-sizing: border-box;
 }
-
+/* Login Button */
 .btn-login {
     width: 100%;
     max-width: 312px;
@@ -76,16 +76,25 @@ body {
     margin: 20px auto 0 auto;
     display: block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     padding: 12px;
     box-sizing: border-box;
 }
 
+/* Subtle hover effect */
+.btn-login:hover {
+    background-color: #003366; /* slightly lighter/darker blue */
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Active press effect */
 .btn-login:active {
-    transform: translateY(0);
+    transform: translateY(1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Register link */
 .register-link {
     font-size: 13px;
     text-align: center;
@@ -99,9 +108,12 @@ body {
     font-size: 13px;
 }
 
+/* Optional subtle hover for register link */
 .register-link a:hover {
     text-decoration: underline;
+    color: #003366;
 }
+
 
 @media (max-width: 992px) {
     .login-card { width: 90%; height: auto; max-height: 90vh; }

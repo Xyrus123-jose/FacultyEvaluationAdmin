@@ -33,10 +33,13 @@
                             <input type="text" class="form-control" name="program_name" id="program_name" placeholder="Enter program name" required>
                         </div>
 
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" name="program_status" id="program_status" checked>
-                            <label class="form-check-label" for="program_status">Active Program</label>
-                        </div>
+                        <div class="mb-3">
+                              <label for="program_status" class="form-label">Program Status</label>
+                              <select class="form-select" name="program_status" id="program_status">
+                                  <option value="active" selected>Active</option>
+                                  <option value="inactive">Inactive</option>
+                              </select>
+                          </div>
 
                         <button type="submit" class="btn btn-primary">Add Program</button>
                     </form>
@@ -109,12 +112,14 @@
                                             <i class="fas fa-edit"></i>
                                         </button>
 
+                                        <!-- Archive Button -->
                                         <button 
-                                            class="btn btn-link btn-danger delete-btn" 
+                                            class="btn btn-link btn-warning archive-btn" 
                                             data-id="<?= $program['program_id'] ?>" 
-                                            title="Delete">
-                                            <i class="fas fa-times"></i>
+                                            title="Archive">
+                                            <i class="fas fa-archive"></i>
                                         </button>
+
                                         </div>
                                     </td>
                                 </tr>

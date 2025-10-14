@@ -1,8 +1,8 @@
 :root {
-            --primary-color: #273445;
-            --accent-color: #1C2531;
+            --primary-color: #001A3D;
+            --accent-color: #3498db;
             --light-bg: #f5f7fa;
-            --border-color: #e1e4e8;
+            --border-color: hsl(214, 13%, 90%);
             --text-color: #333;
             --light-text: #666;
             --success-color: #28a745;
@@ -89,7 +89,7 @@
         }
         
         .btn-primary:hover {
-            background-color: #151c25;
+            background-color: #2980b9;
         }
         
         .btn-outline {
@@ -159,7 +159,7 @@
         }
         
         .file-label {
-            background-color: var(--accent-color);
+            background-color: #0d6efd;
             color: #fff;
             padding: 8px 16px;
             border-radius: 6px;
@@ -169,7 +169,12 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 0 6px rgba(28, 37, 49, 0.3);
+            box-shadow: 0 0 6px rgba(13, 110, 253, 0.3);
+        }
+        
+        .file-label:hover {
+            background-color: #0b5ed7;
+            box-shadow: 0 0 10px rgba(13, 110, 253, 0.5);
         }
         
         .file-name {

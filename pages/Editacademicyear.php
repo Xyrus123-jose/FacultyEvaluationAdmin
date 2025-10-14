@@ -2,45 +2,35 @@
 include '../config/db.php';
 header('Content-Type: application/json');
 
-function updateAcademicYear($conn, $id, $start, $end, $semester, $status) {
-    // Validate inputs
-    if (empty($id) || empty($start) || empty($end) || empty($semester) || empty($status)) {
-        return ['status' => 'error', 'message' => 'All fields are required.'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $academic_year_id = $_POST['academic_year_id'] ?? '';
+    $academic_year_start = trim($_POST['academic_year_start'] ?? '');
+    $academic_year_end = trim($_POST['academic_year_end'] ?? '');
+    $semester = trim($_POST['semester'] ?? '');
+    $status = trim($_POST['status'] ?? '');
+
+
+    // Validate that end year is greater than start year
+    if ((int)$academic_year_end <= (int)$academic_year_start) {
+        echo json_encode(['status' => 'error', 'message' => 'End year must be greater than start year.']);
+        exit;
     }
 
-    // Optional: check that end year > start year
-    if ($end <= $start) {
-        return ['status' => 'error', 'message' => 'End year must be greater than start year.'];
-    }
-
-    // Prepare SQL statement
+    // Update query
     $stmt = $conn->prepare("
         UPDATE academic_year_table 
-        SET academic_year_start = ?, 
-            academic_year_end = ?, 
-            semester = ?, 
-            status = ? 
+        SET academic_year_start = ?, academic_year_end = ?, semester = ?, status = ? 
         WHERE academic_year_id = ?
     ");
-
-    $stmt->bind_param("iisii", $start, $end, $semester, $status, $id);
+    $stmt->bind_param("iisii", $academic_year_start, $academic_year_end, $semester, $status, $academic_year_id);
 
     if ($stmt->execute()) {
-        return ['status' => 'success', 'message' => 'Academic year updated successfully.'];
+        echo json_encode(['status' => 'success', 'message' => 'Academic year updated successfully.']);
     } else {
-        return ['status' => 'error', 'message' => 'Database error: ' . $conn->error];
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update academic year.']);
     }
-}
 
-// Check POST request
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['academic_year_id'] ?? '';
-    $start = $_POST['academic_year_start'] ?? '';
-    $end = $_POST['academic_year_end'] ?? '';
-    $semester = $_POST['semester'] ?? '';
-    $status = $_POST['status'] ?? '';
-
-    $response = updateAcademicYear($conn, $id, $start, $end, $semester, $status);
-    echo json_encode($response);
+    $stmt->close();
+    $conn->close();
 }
 ?>

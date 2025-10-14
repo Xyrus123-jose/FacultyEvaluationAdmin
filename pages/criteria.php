@@ -58,12 +58,11 @@ $conn->close();
                     <div class="card-header">
                         <h5><i class="fas fa-plus-circle me-2"></i> Add New Criteria</h5>
                     </div>
-                    <p class="text-muted mb-3">Create a new evaluation question</p>
-
                     <form id="addCriteriaForm" action="Addcriteria.php" method="POST">
-                        <div class="mb-3">
+                       <div class="mb-3">
                             <label for="criteria_question" class="form-label">Question</label>
-                            <textarea id="criteria_question" name="criteria_question" class="form-control" rows="3" placeholder="Enter evaluation question..." required></textarea>
+                            <textarea id="criteria_question" name="criteria_question" class="form-control" rows="3"
+                                placeholder="Enter evaluation question..." required style="resize: none;"></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -99,9 +98,7 @@ $conn->close();
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-plus me-2"></i>Add Criteria
-                        </button>
+                        <button type="submit" class="btn btn-primary">Add Criteria</button>
                     </form>
 
                 </div>

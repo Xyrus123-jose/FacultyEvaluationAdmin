@@ -1,0 +1,122 @@
+/* Make it stick to bottom */
+.sidebar-footer-section {
+    margin-top: auto; /* pushes it to the bottom */
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+}
+
+.sidebar-footer-section .role-text {
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    margin: 0;
+}
+
+.sidebar-footer-section .btn-logout {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-footer-section .btn-logout i {
+    margin-right: 5px;
+}
+
+/* Hide when sidebar is collapsed */
+.sidebar.collapsed .sidebar-footer-section {
+    display: none;
+}
+
+/* Sidebar logout item */
+.sidebar-logout {
+    margin-top: auto; /* stick to bottom */
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-logout a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: transparent !important;
+    color: #e74c3c; /* red text */
+    text-decoration: none;
+}
+
+/* Disable hover/focus/active effects */
+.sidebar-logout a:hover,
+.sidebar-logout a:focus,
+.sidebar-logout a:active,
+.sidebar-logout a:visited {
+    background: transparent !important;
+    color: #e74c3c !important;
+    outline: none;
+    box-shadow: none;
+}
+
+.sidebar-logout i,
+.sidebar-logout p {
+    margin: 0;
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar.collapsed .sidebar-logout p {
+    display: none;
+}
+
+
+
+.user-info-section {
+    padding: 10px 15px; /* less padding to fit sidebar */
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center; /* vertically center */
+    gap: 10px; /* spacing between avatar and text */
+    min-height: 50px; /* compact height */
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: #1abc9c;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical center text */
+    overflow: hidden;
+}
+
+.user-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px; /* gap between name and role */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.user-role {
+    font-size: 0.75rem;
+    color: #bdc3c7;
+}
+
+/* Hide when sidebar collapsed */
+.sidebar.collapsed .user-info-section {
+    display: none;
+}
