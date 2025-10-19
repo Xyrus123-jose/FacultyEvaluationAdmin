@@ -131,7 +131,7 @@
 
                     <!-- Participants -->
                     <div class="col-md-6">
-                        <div class="card card-stats card-primary card-round">
+                        <div class="card card-stats  card-round">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5 text-center">
@@ -148,7 +148,7 @@
 
                     <!-- Overall Rating -->
                     <div class="col-md-6">
-                        <div class="card card-stats card-primary card-round">
+                        <div class="card card-stats  card-round">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5 text-center">
@@ -206,10 +206,10 @@
         data: {
             datasets: [{
                 data: [50, 35, 15],
-                backgroundColor: ["#1d7af3", "#28a745", "#6fcf97"],
+                backgroundColor: ["#1d7af3", "#6fcf97"],
                 borderWidth: 0
             }],
-            labels: ["New Visitors", "Subscribers", "Active Users"]
+            labels: ["Positive Reviews", "Negative Reviews"]
         },
         options: {
             responsive: true,

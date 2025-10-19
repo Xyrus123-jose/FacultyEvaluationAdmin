@@ -3,7 +3,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/form.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <?php include 'components/header.php'; ?>
@@ -53,7 +52,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Add Academic Year</button>
+                        <button type="submit" class="btn btn-primary w-100">Add Academic Year</button>
                         </form>
 
 
@@ -122,9 +121,9 @@
                                         <td><?= htmlspecialchars($ay['semester']) ?></td>
                                         <td>
                                             <?php if ($ay['status'] == 1): ?>
-                                                <span class="badge rounded-pill bg-success">Starting</span>
+                                                <span class='status-badge status-active'>Starting</span>
                                             <?php else: ?>
-                                                <span class="badge rounded-pill bg-primary">Closed</span>
+                                                <span class='status-badge status-inactive'>Closed</span>
                                             <?php endif; ?>
                                         </td>
                                         <td class='actions'>
@@ -145,13 +144,6 @@
                                                     data-id="<?= $ay['academic_year_id'] ?>" 
                                                     title="Archive">
                                                     <i class="fas fa-archive"></i>
-                                                </button>
-
-                                                <button 
-                                                    class="btn btn-link btn-danger delete-btn" 
-                                                    data-id="<?= $ay['academic_year_id'] ?>" 
-                                                    title="Delete">
-                                                    <i class="fas fa-times"></i>
                                                 </button>
                                                 
                                             </div>

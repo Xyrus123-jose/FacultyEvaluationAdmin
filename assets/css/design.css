@@ -154,7 +154,7 @@ strong {
 
 .text-secondary,
 .text-secondary a {
-	color: #FFFFFF !important
+	color: #524d4d 
 }
 
 .text-secondary a:hover,
@@ -6219,16 +6219,16 @@ label.error {
 }
 
 .btn-primary {
-	background: #1572e8 !important;
-	border-color: #1572e8 !important
+	background: #001A3D !important;
+	border-color: #001A3D !important
 }
 
 .btn-primary:disabled,
 .btn-primary:focus,
 .btn-primary:hover {
 	color: #fff !important;
-	background: #1572e8 !important;
-	border-color: #1572e8 !important
+	background: #273445 !important;
+	border-color: #273445 !important
 }
 
 .btn-secondary {

@@ -23,24 +23,8 @@ $userRole = $_SESSION['role'] ?? 'User';
 
     <link rel="icon" href="../../FacultyEvaluationAdmin/assets/css/background/QCU_Logo.png" type="image/x-icon" />
 
-    <script src="assets/js/webfont.min.js"></script>
-    <script>
-        WebFont.load({
-            google: { families: ["Public Sans:300,400,500,600,700"] },
-            custom: {
-                families: [
-                    "Font Awesome 5 Solid",
-                    "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands",
-                    "simple-line-icons"
-                ],
-                urls: ["../../FacultyEvaluationAdmin/assets/css/fonts.min.css"]
-            },
-            active: () => sessionStorage.fonts = true
-        });
-    </script>
-
     <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/design.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../FacultyEvaluationAdmin/assets/css/sidebar.css" />
 </head>
 
@@ -78,7 +62,7 @@ $userRole = $_SESSION['role'] ?? 'User';
                         <a href="index.php"><i class="fas fa-tachometer-alt"></i><p>Dashboard</p></a>
                     </li>
                     <li class="nav-item <?= ($currentPage == 'evaluationperiod.php') ? 'active' : '' ?>">
-                        <a href="evaluationperiod.php"><i class="fas fa-clock"></i><p>Evaluation Period</p></a>
+                        <a href="evaluationperiod.php"><i class="fas fa-clock"></i><p>Evaluation Schedule</p></a>
                     </li>
                     <li class="nav-item <?= ($currentPage == 'academicyear.php') ? 'active' : '' ?>">
                         <a href="academicyear.php"><i class="fas fa-calendar-alt"></i><p>Academic Year</p></a>
@@ -95,14 +79,14 @@ $userRole = $_SESSION['role'] ?? 'User';
                     <li class="nav-item <?= ($currentPage == 'user.php') ? 'active' : '' ?>">
                         <a href="user.php"><i class="fas fa-user"></i><p>Users</p></a>
                     </li>
-                    <li class="nav-item <?= ($currentPage == 'student.php') ? 'active' : '' ?>">
-                        <a href="student.php"><i class="fas fa-user-graduate"></i><p>Students</p></a>
-                    </li>
 
                     <?php if ($userRole !== 'guidance'): ?>
                     <li class="nav-section mt-3">
                         <span class="sidebar-mini-icon"><i class="fa fa-ellipsis-h"></i></span>
-                        <h4 class="text-section">Components</h4>
+                        <h4 class="text-section">Registrar</h4>
+                    </li>
+                    <li class="nav-item <?= ($currentPage == 'student.php') ? 'active' : '' ?>">
+                        <a href="student.php"><i class="fas fa-user-graduate"></i><p>Students</p></a>
                     </li>
                     <li class="nav-item <?= ($currentPage == 'department.php') ? 'active' : '' ?>">
                         <a href="department.php"><i class="fas fa-building"></i><p>Departments</p></a>
@@ -111,14 +95,12 @@ $userRole = $_SESSION['role'] ?? 'User';
                         <a href="program.php"><i class="fas fa-graduation-cap"></i><p>Programs</p></a>
                     </li>
                     <?php endif; ?>
+                    <li class="nav-item">
+                        <a href="logout.php">
+                        <i class="fas fa-sign-out-alt text-danger"></i>
+                    <p class="text-danger mb-0">Logout</p></a>
+                    </li>
                 </ul>
-            </div>
-
-            <div class="sidebar-logout">
-                <a href="logout.php" class="d-flex align-items-center">
-                    <i class="fas fa-sign-out-alt text-danger me-2"></i>
-                    <p class="text-danger mb-0">Logout</p>
-                </a>
             </div>
         </div>
     </div>

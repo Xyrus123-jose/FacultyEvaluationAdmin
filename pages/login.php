@@ -18,19 +18,19 @@
 
     <div class="login-form" style="margin-left: 50px;">
         <div class="login-right mt-4 me-3">
-            <h1>Sign in</h1>
+            <h1>Welcome Back!</h1>
 
             <form id="loginForm" method="POST">
                 <div class="d-flex justify-content-center mt-5">
                     <div style="width: 100%;">
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="your_email@domain.com" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="form-label fw-bold">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="yourpassword*" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                         </div>
 
                         <div class="d-flex justify-content-center mt-4">
@@ -41,7 +41,7 @@
 
                 <p class="mb-0 mt-4 text-center register-link">
                     DON'T HAVE AN ACCOUNT? 
-                    <a href="register.php" class="fw-bold text-decoration-none">REGISTER</a>
+                    <span class="fw-bold text-muted">CONTACT THE ADMINISTRATOR</span>
                 </p>
             </form>
         </div>

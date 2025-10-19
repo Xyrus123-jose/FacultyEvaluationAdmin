@@ -254,14 +254,14 @@
         }
         
         .status-inactive {
-            background-color: var(--light-text);
-            color: white;
+            background-color: #FFFB7B;
+            color: rgb(0, 0, 0);
         }
         
         .action-btn {
             background: none;
             border: none;
-            color: var(--accent-color);
+            color: #0099FF;
             cursor: pointer;
             font-weight: 500;
             margin-right: 10px;

@@ -126,7 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Submit Edit Form
     const editForm = document.getElementById('editPeriodForm');
     editForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault();    // Send reminders button functionality
+            document.getElementById('send-reminders-btn').addEventListener('click', () => {
+                alert('Reminders sent successfully to all scheduled students!');
+            });
+            
 
         Swal.fire({
             title: 'Are you sure?',
